@@ -1,12 +1,14 @@
 import { css, cx } from "@emotion/css";
 import React from "react";
+import Header from "../../components/Header/Header";
 import PhotoCard from "../../components/PhotoCard/PhotoCard";
 import { typography } from "../../styles/typography";
 import { styles } from "./styles";
 
 const Collections = () => {
   return (
-    <div>
+    <div className={styles.collections}>
+      <Header />
       <div className={styles.collectionsHeader}>
         <h4 className={typography.title}>Collections</h4>
         <p

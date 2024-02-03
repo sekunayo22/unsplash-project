@@ -9,7 +9,7 @@ import Collections from "./pages/collections";
 function App() {
   return (
     <div>
-      <Collections />
+      <ImageDetails />
     </div>
   );
 }

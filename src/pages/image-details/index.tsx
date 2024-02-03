@@ -1,34 +1,64 @@
-import { css } from "@emotion/css";
+import { css, cx } from "@emotion/css";
 import React from "react";
+import Button from "../../components/Button/Button";
 import Header from "../../components/Header/Header";
+
+import { ReactComponent as Plus } from "../../assets/icons/Plus.svg";
+import { ReactComponent as Download } from "../../assets/icons/down-arrow.svg";
+import { typography } from "../../styles/typography";
+import { styles } from "./styles";
+import PhotoListItem from "../../components/PhotoListItem/PhotoListItem";
 
 function ImageDetails() {
   return (
-    <div
-      className={css({
-        height: "calc(100vh - 200px)",
-        overflowY: "hidden",
-      })}
-    >
+    <div className={styles.imageDetails}>
       <Header />
-      <main
-        className={css({
-          margin: "50px auto",
-          width: "95vw",
-          height: "100%",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "100px",
-        })}
-      >
-        <div
-          className={css({
-            backgroundColor: "red",
-            width: "100%",
-            height: "100%",
-          })}
-        ></div>
-        <p>aaaa</p>
+      <main className={styles.imageDetailsContainer}>
+        <div className={styles.imageDetailsBackground}></div>
+        <div>
+          <div className={styles.imageDetailsProfile}>
+            <div className={styles.imageDetailsProfileImage}></div>
+            <h5 className={typography.description}>Michael Baccin</h5>
+          </div>
+          <p className={typography.small02}>Published on October 31, 2022</p>
+          <div
+            className={css({
+              display: "flex",
+              gap: "20px",
+              marginTop: "24px",
+            })}
+          >
+            <Button
+              leadingContent={<Plus />}
+              type="button"
+              variant="primary"
+              label="Add to Collection"
+            />
+            <Button
+              leadingContent={<Download />}
+              type="button"
+              variant="primary"
+              label="Download"
+            />
+          </div>
+          <div
+            className={css({
+              marginTop: "48px",
+            })}
+          >
+            <h4
+              className={cx(
+                typography.largeDescription,
+                css({ fontSize: "1.5rem" }),
+              )}
+            >
+              Collections
+            </h4>
+            <div className={styles.imageDetailsList}>
+              <PhotoListItem />
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   );

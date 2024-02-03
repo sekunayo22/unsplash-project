@@ -1,4 +1,4 @@
-import { css } from "@emotion/css";
+import { css, cx } from "@emotion/css";
 import { ButtonType, ButtonVariant } from "../../types";
 import { styles } from "./styles";
 
@@ -12,6 +12,7 @@ interface ButtonProps {
   disabled?: boolean;
   children?: JSX.Element;
   handleClick?: () => void;
+  className?: any;
 }
 
 const Button = ({
@@ -24,10 +25,11 @@ const Button = ({
   loading,
   disabled,
   handleClick,
+  className,
 }: ButtonProps) => {
   return (
     <button
-      className={css(styles.button(variant))}
+      className={cx(css(styles.button(variant), className))}
       disabled={disabled}
       type={type}
       onClick={handleClick}
@@ -37,7 +39,7 @@ const Button = ({
       ) : (
         <>
           {leadingContent && leadingContent}
-          {label || children}
+          <span>{label || children}</span>
           {trailingContent && trailingContent}
         </>
       )}

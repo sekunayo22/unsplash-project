@@ -1,5 +1,10 @@
 import { css } from "@emotion/css";
 
+const collections = css({
+  height: "100vh",
+  overflowY: "hidden",
+});
+
 const collectionsHeader = css({
   display: "flex",
   flexDirection: "column",
@@ -19,4 +24,5 @@ const collectionsPhotosMain = css({
 export const styles = {
   collectionsHeader,
   collectionsPhotosMain,
+  collections,
 };
